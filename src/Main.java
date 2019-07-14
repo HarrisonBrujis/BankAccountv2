@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-<<<<<<< Updated upstream
-=======
-
         //This class really doesn't need to exist
+        SignIn.main(args);
+        /*
 
->>>>>>> Stashed changes
+        What is any of this?
+
         double checking;
         double saving;
         double money;
@@ -18,5 +18,6 @@ public class Main {
         double newacccountD;
         //SignIn sI = new SignIn();
         //sI.sign();
+        */
     }
 }

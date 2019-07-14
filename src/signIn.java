@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 //Common practice for class naming is to use caps for the beginning of each word
 public class SignIn {
+    /**
+     * SignIn is a primarily static class that is used to create an example of a Bank Account
+     */
     //What you see here is my good code
-
     //Test Accounts
     private static ArrayList<Account> accountList = new ArrayList<Account>();
 
@@ -17,10 +19,9 @@ public class SignIn {
         //I could store these as object variables, but they aren't being used outside of this list so it isn't needed
         accountList.add(new Account("Bob", "1234", 100));
         accountList.add(new Account("Harrison", "1239", -20));
-        accountList.add(new Account("Leroy", "Jenkins", 420.01));
+        accountList.add(new Account("Leroy", "Jenkins", 420.69));
 
-
-        boolean isRunning = false;
+        login();
     }
 
 
@@ -54,13 +55,9 @@ public class SignIn {
             System.out.println("Password is incorrect");
         }
     }
-
-    public static void manage(Account user) {
-
-    }
     /**
      *
-     * @param name : the user that you want to find in the local list of accounts
+     * @param name the user that you want to find in the local list of accounts
      * @return the account that has that username (null if there isn't any)
      */
     public static Account findUser(String name) {
@@ -76,6 +73,48 @@ public class SignIn {
         return result;
     }
 
+    /**
+     * This is a UI that allows the user to manage the balance of the account
+     * @param user the bank account that is being managed
+     */
+    public static void manage(Account user) {
+        boolean isRunning = true;
+
+        String answer;
+        double num;
+
+        while (isRunning) {
+            answer = "";
+
+            System.out.println();
+            System.out.println("=== What would you like to do? Press one of the following: ===");
+            System.out.println("1 - View Balance");
+            System.out.println("2 - Deposit");
+            System.out.println("3 - Withdraw");
+            System.out.println("4 - Quit");
+            System.out.println();
+
+            answer = input.nextLine();
+
+
+            if (answer.equals("1")) {
+                System.out.println("Your balance is " + user.getBalance());
+            }
+            if (answer.equals("2")) {
+                System.out.println("How much would you like to deposit? ");
+                num = input.nextDouble();
+                user.deposit(num);
+            }
+            if (answer.equals("3")) {
+                System.out.println("How much would you like to withdraw? ");
+                num = input.nextDouble();
+                user.withdraw(num);
+            }
+            if (answer.equals("4")) {
+                isRunning = false;
+            }
+        }
+    }
 
     /*
     This was your bad code

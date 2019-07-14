@@ -17,6 +17,7 @@ public class Account {
     */
     public Account(String username, String password) {
         this.username = username;
+        this.password = password;
         balance = 0.0;
     }
 
@@ -24,6 +25,7 @@ public class Account {
     //It makes "new Account("Bob")" and "new Account("Bob", 100) acceptable ways to instantiate an object of type Account
     public Account(String username, String password, double balance) {
         this.username = username;
+        this.password = password;
         this.balance = balance;
     }
 
@@ -41,10 +43,10 @@ public class Account {
 
     //These 2 methods are mutator methods (and normally might be called setBalance, addBalance, subBalance, etc.)
     //Mutator methods modify instance variables
-    public void withdraw(int amount) {
-        balance-= amount;
+    public void withdraw(double amount) {
+        balance -= amount;
     }
-    public void deposit(int amount) {
+    public void deposit(double amount) {
         balance += amount;
     }
 
